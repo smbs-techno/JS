@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121;color:aliceblue ">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    // Add
+    //this is method 1 of adding element
+    function addLanguage(langName){
+       const li = document.createElement('li')
+       li.innerHTML = `${langName}`
+       document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("Python")
+    addLanguage("Typescript")
+    
+    // Add
+    //this is method 2 of adding element, it is more optimal than method 1(recommend to use this one)
+    function addOptimalLanguage(langName){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptimalLanguage("C")
+
+    //Edit
+    const secondLang = document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML = "C++"
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+
+    //Edit
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>Python</li>'
+    
+    //Remove
+    const lastlang = document.querySelector('li:last-child')
+    lastlang.remove()
+</script>
+</html>
