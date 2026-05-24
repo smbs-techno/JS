@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body style="background-color: aliceblue;">
+    <h2>Amazing Image</h2>
+    <div>
+        <ul id="images">
+            <li><img id="VK" src="VK.png" alt="Virat Kohli" width="200"></li>
+            <li><img id="ABD" src="ABD.png" alt="AB De Villiers"  width="100"></li>
+            <li><a href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // document.getElementById('VK').onclick = function(){
+    //     alert("VK click")
+    // }
+    
+    // attachEvent() - used at the time of internet explorer
+    // jQuery - on event Listener
+    
+    //type, timestamp, defaultPrevented
+    //targe, toElement, srcElement, currentTarget
+    //clientX, clientY, screenX, screenY
+    //altkey, ctrlkey, shiftkey, keyCode
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+    // document.getElementById('VK').addEventListener('click', function(e){
+    //     console.log("VK");
+    //     e.stopPropagation()
+    // }, false)
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    //     console.log("Google clicked");
+    // })
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+            let removeit=e.target.parentNode
+            removeit.remove()
+        }
+        // removeit.parentNode.removeChild(removeit)
+    })
+
+</script>
+</html>
+
+<!-- NOTES
+1) onclick
+
+document.getElementById('VK').onclick = function(){}
+
+* Used to perform an action when an element is clicked.
+* Only one onclick event can exist at a time.
+
+2) addEventListener()
+
+element.addEventListener('click', function(){})
+
+* Modern and best way to handle events.
+* Multiple events can be added on same element.
+* 'click' = event type
+* function(e) = callback function
+
+3) Event Object (e)
+
+function(e){}
+
+* e stores information about the event.
+* Gives details about where click happened.
+
+Important properties:
+* e.target → exact clicked element
+* e.target.tagName → returns tag name like IMG, LI
+* e.target.id → returns id of clicked element
+
+4) Event Bubbling
+
+When child is clicked:
+IMG → LI → UL → BODY
+
+Event moves upward automatically.
+
+5) stopPropagation()
+
+e.stopPropagation()
+
+* Stops event bubbling.
+* Parent event will not run.
+
+6) preventDefault()
+
+e.preventDefault()
+
+* Stops default behavior.
+Example:
+* Prevents Google link from opening.
+
+7) querySelector()
+
+document.querySelector('#images')
+
+* Selects first matching element.
+* # = id
+* . = class
+
+8) parentNode
+
+e.target.parentNode
+
+* Selects parent element.
+Example:
+IMG parent is LI.
+
+9) remove()
+
+removeit.remove()
+
+* Removes selected element from webpage.
+
+MAIN CONCEPT OF THIS CODE
+
+This code demonstrates:
+* Event Handling
+* Event Bubbling
+* Event Delegation
+* DOM Manipulation
+* Removing Elements Dynamically -->
