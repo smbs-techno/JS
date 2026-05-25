@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sri</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const saysri = function(){
+        console.log("Sri");
+    }
+    const text = function(){
+        document.querySelector('h1').innerHTML = "best JS playlist"
+    }
+    
+    const time = setTimeout(text,2000)
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(time)
+        console.log("STOPPED");
+    })
+
+    // setTimeout() -> Used to run a function only one time after a specified delay.
+    // clearTimeout() -> Used to stop a setTimeout() before it executes.
+</script>
+</html>
