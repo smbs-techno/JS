@@ -1,0 +1,33 @@
+//DOM -> DOCUMENT OBJECT MODEL
+if we want represent the whole html page through object, that hierarchy defines through dom.
+in simple language, the whole structure of html page represent through object
+we access those html elements using document.getClass, document.getId
+
+the tags like heading, paragraph, submit button and etc are accessed through js objects
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="main-heading">Welcome</h1>
+    <p class="desc">Java full stack</p>
+    <button id="btn">Click</button>
+
+    <script>
+        //fetching tags from html
+        const heading=document.getElementById("main-heading") //in this way we can access the heading through js dom, in getElementById it returns an element
+        console.log(heading.innerText);
+
+        const paragraph=document.getElementsByClassName("desc")[0] //in this way we can access the paragraph through js dom, it returns an array(because classes can be multiple)
+        console.log(heading.innerText);
+
+        const btn=document.getElementsById("btn") //in this way we can access the button through js dom
+        console.log(btn.innerText);
+        
+    </script>
+</body>
+</html>

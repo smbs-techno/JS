@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="main-heading">Welcome</h1>
+    <p class="desc">Java full stack</p>
+    <p class="desc">SuperOps 1.0 DevOps</p>
+    
+    <div>
+        <h2 id="title">DSA</h2>
+        <p class="content">DSA Course</p>
+
+    </div>
+    <ul class="list">
+        <li>HTML</li>
+        <li>DSA</li>
+        <li>JAVA</li>
+    </ul>
+
+    <div id="demo">
+        Hello <strong> Sri</strong>
+    </div>
+
+    <button id="btn">Click</button>
+
+    <script>
+        const heading=document.getElementById("main-heading") 
+        console.log(heading.innerText);
+
+        const paragraph=document.getElementsByClassName("desc") 
+        console.log(paragraph.length); //gives the length of paragraph having classname = "desc"
+        console.log(paragraph[0].innerHTML);
+        console.log(paragraph[1].innerHTML);
+        console.log(paragraph.innerText);
+
+        const btn=document.getElementById("btn") 
+        console.log(btn.innerText);
+        
+        // select all list items using tag name
+        const listItem = document.getElementsByTagName("li")
+        for(let items of listItem){
+            console.log(items.textContent);
+        }
+
+        //query selector
+        const des = document.querySelector(".desc") //as there are more than 1 desc class then it will return only the first desc class
+        console.log(des);
+
+        const des1 = document.querySelectorAll(".desc") //returns all the class have desc class name
+        des1.forEach((p,index) => {
+            console.log(p.innerText);
+            
+        })
+        
+        //innerText : gives you only visible text inside the element
+        //innerHTML : gives you entire HTML content (including nested tags inside and element) -> it gives us tags not only text
+        const ele = document.getElementById("demo")
+        console.log("innerText : ", ele.innerText);
+        console.log("innerHTML : ", ele.innerHTML);
+        //we can understand the difference from the above example
+    </script>
+</body>
+</html>
